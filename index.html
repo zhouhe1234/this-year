@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -28,7 +28,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:
 .scroller{height:100%;overflow-y:scroll;scroll-snap-type:y proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior:contain}
 .scroller::-webkit-scrollbar{display:none}
 section{height:100vh;height:calc(var(--vh,1vh) * 100);scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:9vh 26px 8vh}
-.kicker{font-size:10px;letter-spacing:.32em;color:#9a948c;display:flex;align-items:center;gap:10px;margin-bottom:auto}
+.kicker{font-size:10px;letter-spacing:.32em;color:#9a948c;display:flex;align-items:center;gap:10px;margin-bottom:16px;flex:0 0 auto}
 .kicker::after{content:"";height:1px;flex:1;background:var(--line)}
 .caption{font-size:10.5px;line-height:1.85;color:#9a948c;margin-top:14px;padding-left:10px;border-left:1px solid var(--line);letter-spacing:.01em}
 .caption b{color:var(--ink);font-weight:600}
@@ -64,17 +64,17 @@ section{height:100vh;height:calc(var(--vh,1vh) * 100);scroll-snap-align:start;sc
 /* S1 封面 */
 #s1{justify-content:flex-end;background:#f4efe6;padding-bottom:9vh}
 #s1 .photo{
-  position:absolute;top:4vh;left:0;right:0;height:60vh;
+  position:absolute;top:3vh;left:0;right:0;height:47vh;
   background-position:center bottom;background-size:contain;background-repeat:no-repeat;
   animation:kb 22s ease-out forwards;
 }
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
-#s1 .veil{position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(244,239,230,0) 46%,rgba(244,239,230,.85) 62%,rgba(244,239,230,.98) 74%)}
+#s1 .veil{position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(244,239,230,0) 40%,rgba(244,239,230,.7) 52%,rgba(244,239,230,1) 60%)}
 #s1 .txt{position:relative;z-index:2;color:#1a1a1a}
 .brand{font-size:10.5px;letter-spacing:.34em;color:#8a8580;margin-bottom:16px}
-h1{font-family:"Songti SC","SimSun",serif;font-weight:600;font-size:clamp(46px,14vw,68px);line-height:1.02;letter-spacing:-.01em}
+h1{font-family:"Songti SC","SimSun",serif;font-weight:600;font-size:clamp(42px,12.5vw,62px);line-height:1.22;letter-spacing:.01em}
 h1 span{display:block;overflow:hidden}
-h1 span i{display:block;font-style:normal;transform:translateY(105%);animation:rise .95s cubic-bezier(.19,1,.22,1) forwards}
+h1 span i{display:block;font-style:normal;transform:none}
 h1 span:nth-child(2) i{animation-delay:.14s}
 @keyframes rise{to{transform:translateY(0)}}
 .dek{margin-top:14px;font-size:13.5px;line-height:1.85;color:#4a4640;opacity:0;animation:fade 1s ease .55s forwards}
@@ -110,10 +110,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 #s2 .tag{position:absolute;left:14px;top:14px;z-index:2;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.92);background:rgba(0,0,0,.45);padding:5px 10px;backdrop-filter:blur(3px)}
 
 /* S3 刮开 */
-#s3{padding:7vh 0 8vh;justify-content:center}
+#s3{justify-content:flex-start;padding:6vh 0 3vh}
 #s3 .head{padding:0 26px;margin-bottom:16px}
 h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
-.scratchbox{position:relative;margin:0 26px;width:auto;padding-top:133.33%;background:#e8dfd1;overflow:hidden}
+.scratchbox{position:relative;margin:0 26px;height:50vh;background:#e8dfd1;overflow:hidden}
 .scratchbox img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
 .scratchbox .ph{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;align-items:flex-end;padding:12px;font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.75);pointer-events:none}
 #scratch{position:absolute;left:0;top:0;right:0;bottom:0;width:100%;height:100%;touch-action:none;cursor:crosshair;z-index:2}
@@ -128,7 +128,7 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 #s4 .photo::after{content:"照片位 · capybara-01";position:absolute;left:16px;top:16px;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.28)}
 /* 暗角：把注意力压到中间那只 */
 #s4::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;z-index:2;pointer-events:none;
-  background:radial-gradient(circle at 50% 44%,rgba(0,0,0,0) 26%,rgba(0,0,0,.62) 88%,rgba(0,0,0,.86) 100%)}
+  background:radial-gradient(circle at 50% 44%,rgba(0,0,0,.25) 20%,rgba(0,0,0,.7) 75%,rgba(0,0,0,.92) 100%)}
 #s4 .fg{position:relative;z-index:3;text-align:center;color:#efe9df;padding:0 30px}
 .ring{width:86px;height:86px;margin:0 auto;position:relative}
 .ring svg{transform:rotate(-90deg)}
@@ -152,7 +152,7 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 .choice:active{background:#efeae2}
 .choice.on{background:var(--ink);color:var(--paper)}
 .choice span{font-size:11px;opacity:.45;letter-spacing:.1em}
-#s5 .verdict{margin-top:12px;font-family:"Songti SC",serif;font-size:13.5px;line-height:1.75;opacity:0;transform:translateY(6px);transition:.7s;min-height:74px}
+#s5 .verdict{margin-top:10px;font-family:"Songti SC",serif;font-size:13px;line-height:1.7;opacity:0;transform:translateY(6px);transition:.7s;min-height:58px}
 #s5 .verdict.show{opacity:1;transform:none}
 #s5 .caption{margin-top:20px}
 
@@ -163,13 +163,13 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 .num{font-family:"Songti SC",serif;font-weight:600;font-size:clamp(58px,17vw,88px);letter-spacing:-.035em;line-height:.95}
 .num small{font-size:.3em;margin-left:6px;font-weight:400;color:var(--gray)}
 .num-label{font-size:12px;color:var(--gray);letter-spacing:.14em;margin-top:12px}
-.s6-in{opacity:0}
+.s6-in{opacity:1}
 #s6.in .s6-in{animation:fadeUp .8s ease forwards}
 #s6.in .d1{animation-delay:.15s}
 #s6.in .d2{animation-delay:.9s}
-#s6 .divider{width:36px;height:1px;background:var(--line);margin:28px auto;opacity:0}
+#s6 .divider{width:36px;height:1px;background:var(--line);margin:28px auto;opacity:1}
 #s6.in .divider{animation:fadeUp .8s ease 1.5s forwards}
-.punch{font-family:"Songti SC",serif;font-size:19px;line-height:1.85;opacity:0;transform:translateY(8px)}
+.punch{font-family:"Songti SC",serif;font-size:19px;line-height:1.85;opacity:1}
 #s6.in .punch{animation:fadeUp 1s ease 1.9s forwards}
 .punch b{font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:2px}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
@@ -196,7 +196,7 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 #s7::before{content:"";position:absolute;top:0;left:50%;width:1px;height:16vh;
   background:linear-gradient(180deg,rgba(232,220,200,.32),rgba(232,220,200,0));transform:translateX(-50%)}
 #s7 .words{color:#d9d3c8;font-family:"Songti SC",serif;font-size:19px;line-height:2.1}
-#s7 .words span{opacity:0;display:inline-block;animation:charIn .9s ease forwards}
+#s7 .words span{opacity:1;display:inline-block}
 @keyframes charIn{to{opacity:1}}
 #s7 .mine{
   margin-top:28px;font-family:"Kaiti SC","KaiTi","STKaiti",serif;font-size:20px;line-height:1.9;
@@ -287,9 +287,9 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 .stepBody em{font-style:normal;color:var(--accent)}
 
 /* ================= 新增：三道说法 ================= */
-#s5e{justify-content:center;padding:5vh 18px}
+#s5e{justify-content:flex-start;padding:5vh 18px 3vh}
 #s5e .q6{font-family:"Songti SC",serif;font-size:18px;line-height:1.4;margin-bottom:14px}
-.qitem{border-top:1px solid var(--line);padding:10px 0}
+.qitem{border-top:1px solid var(--line);padding:10px 0;position:relative;padding-right:84px}
 .qitem .qt{font-size:12px;line-height:1.65;margin-bottom:8px}
 .qbtns{display:flex;gap:6px}
 .qbtns button{flex:1;padding:7px 0;border:1px solid var(--line);background:transparent;font-size:11.5px;color:#4a4640;cursor:pointer;transition:.2s;font-family:inherit}
@@ -314,7 +314,7 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 .tbody{font-size:13px;line-height:1.95;color:#3a3631;border-top:1px solid #d5ccbd;padding-top:16px;min-height:110px}
 
 /* ================= 新增：毕业季 ================= */
-#s6g{justify-content:center;padding:5vh 20px}
+#s6g{justify-content:flex-start;padding:5vh 20px 3vh}
 #s6g .q6{font-family:"Songti SC",serif;font-size:19px;line-height:1.4;margin-bottom:12px}
 #s6g .para{font-size:12px;line-height:1.8;color:#3a3631;margin-bottom:12px}
 #s6g .quote{font-size:11px;line-height:1.9;color:#5a5650;border-left:1px solid var(--accent);padding-left:10px;margin-bottom:14px}
@@ -323,18 +323,7 @@ h2{font-family:"Songti SC","SimSun",serif;font-size:22px;line-height:1.4}
 #s6g .verdict{margin-top:16px;font-size:13.5px;line-height:1.9;opacity:0;transition:.6s}
 #s6g .verdict.show{opacity:1}
 
-/* ================= 屏内进入过渡 ================= */
-@keyframes secIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-section.in .kicker,section.in .q,section.in .q5,section.in .q6,section.in h2,
-section.in .head,section.in .bill,section.in .ask,section.in .rng,
-section.in #payOut,section.in .choices,section.in .verdict,section.in .scale,
-section.in .note5,section.in .note6,section.in .cap2,section.in .brand,section.in .dek,section.in .meta{
-  animation:secIn .75s cubic-bezier(.19,1,.22,1) both;
-}
-section.in h2,section.in .q,section.in .q5,section.in .q6{animation-delay:.06s}
-section.in .bill,section.in .choices,section.in .scale,section.in .ask{animation-delay:.14s}
-section.in #payOut,section.in .rng,section.in .cap2,section.in .verdict{animation-delay:.22s}
-.scroller{scroll-behavior:smooth}
+/* 屏内进入动画已移除：标题会停在半透明 */
 
 /* ================= 配图通用：一律完整显示，不裁切 ================= */
 .catpic,.stepcat,.gpic,.wpic{
@@ -355,7 +344,7 @@ section.in #payOut,section.in .rng,section.in .cap2,section.in .verdict{animatio
 #s4b .timg.show{opacity:1}
 
 /* S5 猫病屏配图 */
-#s5 .catpic{margin:0 0 12px}
+#s5 .catpic{margin:0 0 10px;max-height:28vh}
 
 /* S5b 账单：猫 + 猫粮 */
 #s5b .billtop{display:flex;align-items:flex-end;gap:12px;margin-bottom:10px}
@@ -369,7 +358,7 @@ section.in #payOut,section.in .rng,section.in .cap2,section.in .verdict{animatio
 #s5d .stepcat{margin:12px 0 0;max-height:30vh}
 
 /* S5e 判断表情 */
-.qitem .qcat{width:92px;height:92px;object-fit:contain;float:right;margin:0 0 4px 8px;transition:transform .3s;background:#efe9df;border:1px solid rgba(0,0,0,.06)}
+.qitem .qcat{width:78px;height:78px;object-fit:contain;float:right;margin:0 0 4px 8px;transition:transform .3s;background:#efe9df;border:1px solid rgba(0,0,0,.06)}
 
 /* S6 数据配图 */
 #s6 .dipair{display:flex;gap:6px;margin-top:14px;align-items:center;justify-content:center}
@@ -706,7 +695,7 @@ function fadeTo(v,ms){
   if(!audioOn) return;
   const from=bgm.volume, t0=performance.now();
   const step=now=>{
-    const p=Math.min(1,(now-t0)/ms);
+    const p=Math.max(0,Math.min(1,(now-t0)/ms));
     bgm.volume=Math.max(0,Math.min(1,from+(v-from)*p));
     if(p<1) requestAnimationFrame(step);
   };
@@ -914,22 +903,20 @@ let counted=false;
 function countTo(el,to,dec,ms){
   const t0=performance.now();
   const step=now=>{
-    const p=Math.min(1,(now-t0)/ms);
+    const p=Math.max(0,Math.min(1,(now-t0)/ms));
     el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(dec);
     if(p<1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
 }
-const io6=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting&&!counted){
-      counted=true;
-      setTimeout(()=>countTo(document.getElementById('n1'),1.26,2,1600),300);
-      setTimeout(()=>countTo(document.getElementById('n2'),3100,0,1600),1100);
-    }
-  });
-},{threshold:.6});
-io6.observe(document.getElementById('s6'));
+/* 直接计时触发，不依赖滚动观察器（部分内核不触发） */
+setTimeout(function(){
+  if(!counted){
+    counted=true;
+    setTimeout(()=>countTo(document.getElementById('n1'),1.26,2,1600),100);
+    setTimeout(()=>countTo(document.getElementById('n2'),3100,0,1600),700);
+  }
+},700);
 
 /* ---------- S6b 写下自己的一句话 ---------- */
 const LB=document.getElementById('myline'), cnt=document.getElementById('cnt'), okBtn=document.getElementById('okBtn');
@@ -1258,3 +1245,11 @@ document.addEventListener('keydown',e=>{
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
