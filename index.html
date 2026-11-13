@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -25,7 +25,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:
   mix-blend-mode:multiply;
 }
 #bar{position:absolute;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:99;transition:width .4s ease}
-.scroller{height:100%;overflow-y:scroll;scroll-snap-type:y proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior:contain}
+.scroller{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior:contain}
 .scroller::-webkit-scrollbar{display:none}
 section{height:100vh;height:calc(var(--vh,1vh) * 100);scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:9vh 26px 8vh}
 .kicker{font-size:10px;letter-spacing:.32em;color:#9a948c;display:flex;align-items:center;gap:10px;margin-bottom:16px;flex:0 0 auto}
@@ -1086,6 +1086,22 @@ function goto(i){
   i=Math.max(0,Math.min(secs.length-1,i));
   secs[i].scrollIntoView({behavior:'smooth'});
 }
+
+/* ---------- 强制一屏一屏走，不能一次跳过 ---------- */
+let snapGuard=false, nowIdx=0;
+scrEl.addEventListener('scroll',function(){
+  if(snapGuard) return;
+  const vh=window.innerHeight || 1;
+  const idx=Math.round(scrEl.scrollTop/vh);
+  if(Math.abs(idx-nowIdx)>1){
+    snapGuard=true;
+    const target=nowIdx+(idx>nowIdx?1:-1);
+    scrEl.scrollTo({top:target*vh,behavior:'auto'});
+    setTimeout(function(){ snapGuard=false; },340);
+  }else if(idx!==nowIdx){
+    nowIdx=idx;
+  }
+},{passive:true});
 document.getElementById('upBtn').addEventListener('click',()=>goto(curIndex()-1));
 document.getElementById('downBtn').addEventListener('click',()=>goto(curIndex()+1));
 let wheelLock=false;
